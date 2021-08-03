@@ -1,0 +1,129 @@
+/* Styles go here */
+* {
+    margin: 0px;
+    padding:0px;
+    font-family:'Nunito',sans-serif;
+}
+.center_div{
+    margin: 0 auto;
+    width:50% 
+}
+.center_input{
+    margin: 0 auto;
+    width:80% 
+}
+.center_arrow{
+    margin: 0 auto;
+    width: 12%
+}
+.center_text{
+    margin: 0 auto;
+    width:200% 
+}
+.nw {
+    white-space: nowrap;
+ }
+.menu-bar{
+    /* background-image: linear-gradient(-90deg,#d38312,#a83279); */
+  background: #31354E;
+    ;
+}
+.bt-color{
+    background-color:#75FFE6!important;
+    width: 150px;
+    border-radius: 4%;
+    margin: 0 auto;
+}
+.nav-link{
+    font-size : 16px;
+    margin: 3px;
+    color: #fff!important;
+    font-weight: 500 ;
+}
+.navbar-nav {
+    text-align: right;
+    margin-right: 20px;
+}
+.menu-bar .navbar-toggler {
+    padding-right : 20px;
+    outline: none!important;
+    border: none!important;
+}
+.navbar .fa{
+    color: #fff!important;
+}
+.nav-link:hover{
+    font-weight:  600;
+    border-bottom: 1px solid #fff;
+}
+.nav-brand {
+    width: 150px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+@media only screen and (max-width: 1000px){
+    .navlink:hover {
+        border-bottom: none!important;
+    }
+}
+.tagline {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 2;
+    padding: 30px;
+}
+.card_center {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+.card-text{
+    font-size:45px;
+    font-family:'Nunito',sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.card-bg {
+    background-color: #31354E;
+    ;
+}
+.img-rounded{
+    border-radius: 10%;
+}
+.menu-rounded{
+    border-radius: 8%;
+}
+.menu-text{
+    font-size:30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.card-text-ex{
+    font-size:15px;
+}
+.spacer {
+    padding-top: 1px;
+    padding-bottom: 1px
+}
+.spacer_input {
+    margin-left:50px;
+}
+.spacer_balance {
+    margin-left:245px;
+}
+.spacer_balanceToken {
+    margin-left:290px;
+}
+.spacer_r {
+    margin-right:-20px;
+}
+/* .input-group-append{
+    width: 50%;
+} */
+/* .input-group{
+    margin-left: auto;
+    margin-right: auto;
+} */
