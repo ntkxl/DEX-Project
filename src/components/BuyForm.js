@@ -39,9 +39,9 @@ class BuyForm extends Component {
         
        
         
-        <div>
+        <div className='text-control-from'>
         <label className="text-white  spacer_input"><b>Input</b></label>
-          <span className="text-white  spacer_balance">
+          <span className="text-white  ">
             Balance: {window.web3.utils.fromWei(this.props.ethBalance, 'Ether')}
           </span>
         </div>
@@ -95,9 +95,9 @@ class BuyForm extends Component {
           </div>
         </div>
 
-        <div>
+        <div className='text-control-from'>
           <label className="text-white spacer_input"><b>Output</b></label>
-          <span className="text-white spacer_balanceToken ">
+          <span className="text-white  ">
             Balance: {window.web3.utils.fromWei(this.props.tokenBalance, 'Ether')}
           </span>
         </div>

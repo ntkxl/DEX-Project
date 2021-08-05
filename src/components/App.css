@@ -111,14 +111,10 @@
 .spacer_input {
     margin-left:50px;
 }
-.spacer_balance {
-    margin-left:245px;
-}
-.spacer_balanceToken {
-    margin-left:290px;
-}
-.spacer_r {
-    margin-right:-20px;
+.text-control-from{
+    display:flex;
+    justify-content: space-between;
+    width : 500px;
 }
 /* .input-group-append{
     width: 50%;
