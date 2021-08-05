@@ -106,7 +106,7 @@ class BuyForm extends Component {
 
         
         <div class="bt-color text-center mb-4 ">
-        <button type="submit" className=" btn  btn-lg ">Swap</button>
+        <button type="submit" className=" w-50 btn btn-primary btn-lg">Swap</button>
         </div>
 
         <div class="card-footer text-white text-center">
