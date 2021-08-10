@@ -22,7 +22,7 @@ contract Token {
     string  public name = "DApp Token";
     string  public symbol = "DAPP";
     uint8   public decimals = 18;
-    uint    public totalTokenSupply = 1000000000000000000000000; // 1 million tokens
+    uint    public totalTokenSupply = 100000000000000000000; // 1 million tokens
 
     //EVENTS
     event Transfer(address indexed _from,address indexed _to,uint _value);

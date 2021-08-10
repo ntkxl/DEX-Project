@@ -59,6 +59,7 @@ import HomePage from './HomePage'
 
 
 
+
 class Navbar extends Component {
   constructor(props) {
     super(props)
@@ -86,6 +87,7 @@ class Navbar extends Component {
       content = <HomePage
       />
     }
+    
 
     return (
       <div id="content" >

@@ -9,5 +9,5 @@ module.exports = async function(deployer) {
   
 
   //Transfer all token to EthSwap
-  await token.transfer(ethSwap.address,'1000000000000000000000000')
+  await token.transfer(ethSwap.address,'100000000000000000000')
 };
