@@ -56,7 +56,7 @@ import React, { Component } from 'react'
 import BuyForm from './BuyForm'
 import SellForm from './SellForm'
 import HomePage from './HomePage'
-
+import PoolPage from './Pool'
 
 
 
@@ -87,7 +87,13 @@ class Navbar extends Component {
       content = <HomePage
       />
     }
-    
+    else if (this.state.currentForm === 'pool'){
+      content = <PoolPage
+      ethBalance={this.props.ethBalance}
+        tokenBalance={this.props.tokenBalance}
+        buyTokens={this.props.buyTokens}
+      />
+    }
 
     return (
       <div id="content" >
@@ -112,6 +118,10 @@ class Navbar extends Component {
             >Sell</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#" onClick={(event) => {this.setState({ currentForm: 'pool' })}}
+            >Pool</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
         </ul>
@@ -123,5 +133,5 @@ class Navbar extends Component {
     );
   }
 }
-wwwww
+
 export default Navbar;
