@@ -21,7 +21,7 @@ class App extends Component {
 
     const ethBalance = await web3.eth.getBalance(this.state.account)
     this.setState({ ethBalance })
-    // console.log(this.state.ethBalance)
+    console.log(this.state.ethBalance)
 
      // Load Token
      const networkId =  await web3.eth.net.getId()
@@ -31,6 +31,7 @@ class App extends Component {
        this.setState({ token })
        let tokenBalance = await token.methods.balanceOf(this.state.account).call()
        this.setState({ tokenBalance: tokenBalance.toString() })
+       console.log(this.state.tokenBalance)
      } else {
        window.alert('Token contract not deployed to detected network.')
      }
@@ -44,7 +45,7 @@ class App extends Component {
       window.alert('EthSwap contract not deployed to detected network.')
     }
 
-    //console.log(this.state.ethSwap)
+    console.log(this.state.ethSwap)
     this.setState({ loading: false })
   }
 
