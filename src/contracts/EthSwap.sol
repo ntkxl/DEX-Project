@@ -49,4 +49,3 @@ contract EthSwap {
         emit TokenSold(msg.sender, address(token), _amount, rate);
     }
 }
-dsdsds
