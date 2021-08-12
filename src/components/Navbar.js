@@ -56,6 +56,7 @@ import React, { Component } from 'react'
 import BuyForm from './BuyForm'
 import SellForm from './SellForm'
 import HomePage from './HomePage'
+import StakePage from './Stake'
 
 
 
@@ -86,6 +87,9 @@ class Navbar extends Component {
     }else if (this.state.currentForm === 'home'){
       content = <HomePage
       />
+    }else if (this.state.currentForm === 'stake'){
+      content = <StaekPage
+      />
     }
     
 
@@ -110,6 +114,10 @@ class Navbar extends Component {
           <li class="nav-item">
             <a class="nav-link" href="#" onClick={(event) => {this.setState({ currentForm: 'sell' })}}
             >Sell</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onClick={(event) => {this.setState({ currentForm: 'stake' })}}
+            >Stake</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>

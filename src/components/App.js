@@ -4,6 +4,8 @@ import Token from '../abis/Token.json'
 import './App.css';
 import Web3 from 'web3';
 import Navbar from './Navbar'
+import DaiToken from '../abis/DaiToken.json'
+import TokenFarm from '../abis/TokenFarm.json'
 import Main from './Main'
 
 class App extends Component {
@@ -21,10 +23,10 @@ class App extends Component {
 
     const ethBalance = await web3.eth.getBalance(this.state.account)
     this.setState({ ethBalance })
-    console.log(this.state.ethBalance)
+    //console.log(this.state.ethBalance)
+    const networkId =  await web3.eth.net.getId()
 
      // Load Token
-     const networkId =  await web3.eth.net.getId()
      const tokenData = Token.networks[networkId]
      if(tokenData) {
        const token = new web3.eth.Contract(Token.abi, tokenData.address)
@@ -35,6 +37,29 @@ class App extends Component {
      } else {
        window.alert('Token contract not deployed to detected network.')
      }
+
+    // Load DaiToken
+    const daiTokenData = DaiToken.networks[networkId]
+    if(daiTokenData) {
+      const daiToken = new web3.eth.Contract(DaiToken.abi, daiTokenData.address)
+      this.setState({ daiToken })
+      let daiTokenBalance = await daiToken.methods.balanceOf(this.state.account).call()
+      this.setState({ daiTokenBalance: daiTokenBalance.toString() })
+    } else {
+      window.alert('DaiToken contract not deployed to detected network.')
+    }
+     
+
+    //Load TokenFarm
+    const tokenFarmData = TokenFarm.networks[networkId]
+    if(tokenFarmData) {
+      const tokenFarm = new web3.eth.Contract(TokenFarm.abi, tokenFarmData.address)
+      this.setState({ tokenFarm })
+      let stakingBalance = await tokenFarm.methods.stakingBalance(this.state.account).call()
+      this.setState({ stakingBalance: stakingBalance.toString() })
+    } else {
+      window.alert('TokenFarm contract not deployed to detected network.')
+    }
 
      // Load EthSwap
     const ethSwapData = EthSwap.networks[networkId]
@@ -97,6 +122,22 @@ class App extends Component {
     })
   }
 
+  stakeTokens = (amount) => {
+    this.setState({ loading: true })
+    this.state.daiToken.methods.approve(this.state.tokenFarm._address, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+      this.state.tokenFarm.methods.stakeTokens(amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+        this.setState({ loading: false })
+      })
+    })
+  }
+
+  unstakeTokens = (amount) => {
+    this.setState({ loading: true })
+    this.state.tokenFarm.methods.unstakeTokens().send({ from: this.state.account }).on('transactionHash', (hash) => {
+      this.setState({ loading: false })
+    })
+  }
+
 
   // buyTokens = (etherAmount) => {
   //   this.setState({ loading: true })
@@ -128,6 +169,10 @@ class App extends Component {
       account: '',
       token: {},
       ethSwap: {},
+      tokenFarm: {},
+      daiToken: {},
+      daiTokenBalance: '0',
+      stakeingBalance: '0',
       ethBalance: '0',
       tokenBalance: '0',
       loading: true
@@ -179,6 +224,10 @@ class App extends Component {
       tokenBalance={this.state.tokenBalance}
       buyTokens={this.buyTokens}
       sellTokens={this.sellTokens}
+      daiTokenBalance={this.state.daiTokenBalance}
+      stakingBalance={this.state.stakingBalance}
+      stakeTokens={this.stakeTokens}
+      unstakeTokens={this.unstakeTokens}
       />
     }
     return (
