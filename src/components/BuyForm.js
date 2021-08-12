@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import tokenLogo from '../token-logo.png'
 import ethLogo from '../eth-logo.png'
 import arrowlogo from '../arrow-down.png'
-import "../contracts/Token.sol" 
-import "../contracts/EthSwap.sol"
 
 class BuyForm extends Component {
   constructor(props) {

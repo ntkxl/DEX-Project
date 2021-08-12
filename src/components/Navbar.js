@@ -88,7 +88,12 @@ class Navbar extends Component {
       content = <HomePage
       />
     }else if (this.state.currentForm === 'stake'){
-      content = <StaekPage
+      content = <StakePage
+      daiTokenBalance={this.props.daiTokenBalance}
+      tokenBalance={this.props.tokenBalance}
+      stakingBalance={this.props.stakingBalance}
+      stakeTokens={this.props.stakeTokens}
+      unstakeTokens={this.props.unstakeTokens}
       />
     }
     

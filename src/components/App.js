@@ -33,7 +33,7 @@ class App extends Component {
        this.setState({ token })
        let tokenBalance = await token.methods.balanceOf(this.state.account).call()
        this.setState({ tokenBalance: tokenBalance.toString() })
-       console.log(this.state.tokenBalance)
+      //  console.log(this.state.tokenBalance)
      } else {
        window.alert('Token contract not deployed to detected network.')
      }
@@ -70,7 +70,7 @@ class App extends Component {
       window.alert('EthSwap contract not deployed to detected network.')
     }
 
-    console.log(this.state.ethSwap)
+    // console.log(this.state.ethSwap)
     this.setState({ loading: false })
   }
 
@@ -124,7 +124,7 @@ class App extends Component {
 
   stakeTokens = (amount) => {
     this.setState({ loading: true })
-    this.state.daiToken.methods.approve(this.state.tokenFarm._address, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
+    this.state.daiToken.methods.approve(this.state.tokenFarm.address, amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
       this.state.tokenFarm.methods.stakeTokens(amount).send({ from: this.state.account }).on('transactionHash', (hash) => {
         this.setState({ loading: false })
       })
@@ -166,13 +166,13 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      account: '',
+      account: '0x0',
       token: {},
       ethSwap: {},
       tokenFarm: {},
       daiToken: {},
       daiTokenBalance: '0',
-      stakeingBalance: '0',
+      stakingBalance: '0',
       ethBalance: '0',
       tokenBalance: '0',
       loading: true

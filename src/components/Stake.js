@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import dai from '../dai.png'
 
 class Stake extends Component {
+   
+    
 
   render() {
     return (
       <div id="content" className="mt-3">
-
         <table className="table table-borderless text-muted text-center">
           <thead>
             <tr>
@@ -16,8 +17,8 @@ class Stake extends Component {
           </thead>
           <tbody>
             <tr>
-              <td>{window.web3.utils.fromWei(this.props.stakingBalance, 'Ether')} mDAI</td>
-              <td>{window.web3.utils.fromWei(this.props.dappTokenBalance, 'Ether')} DAPP</td>
+              <td>Balance:{window.web3.utils.fromWei(this.props.stakingBalance, 'Ether')} mDAI</td>
+              <td>Balance:{window.web3.utils.fromWei(this.props.tokenBalance, 'Ether')} DAPP</td>
             </tr>
           </tbody>
         </table>
